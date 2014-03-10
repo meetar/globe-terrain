@@ -131,7 +131,7 @@
 		uniforms[ "enableDiffuse" ] = { type: 'i', value: 1 };
 
 		uniforms[ "tNormal" ] = { type: 't', value: flatNormalTex };
-		uniforms[ "tDiffuse" ] = { type: 't', value: new THREE.ImageUtils.loadTexture( '../img/world.topo.1024.jpg', new THREE.UVMapping(), function () { render(); }) };
+		uniforms[ "tDiffuse" ] = { type: 't', value: new THREE.ImageUtils.loadTexture( './img/world.topo.1024.jpg', new THREE.UVMapping(), function () { render(); }) };
     uniforms[ "tDisplacement" ] = { type: 't', value: globeTexture.texture2 };
 
 		uniforms[ "tDiffuseOpacity" ] = { type: 'f', value: 1 };
@@ -677,7 +677,7 @@ render();
 		log("large: "+large);
 		// load dem textures first thing
 		globeImage = THREE.ImageUtils.loadTexture(
-			large ? '../img/Srtm.2k_norm.jpg' : '../img/Srtm.1k_norm.jpg',
+			large ? './img/Srtm.2k_norm.jpg' : './img/Srtm.1k_norm.jpg',
 			new THREE.UVMapping(),
 			// callback function
 			function() {
