@@ -119,7 +119,7 @@
     var shader = THREE.ShaderLib[ "normalmap" ];
     uniforms = THREE.UniformsUtils.clone( shader.uniforms );
     
-    flatNormalTex = THREE.ImageUtils.loadTexture( '../img/flat.png', new THREE.UVMapping(), function () { render(); });
+    flatNormalTex = THREE.ImageUtils.loadTexture( './img/flat.png', new THREE.UVMapping(), function () { render(); });
     uniforms[ "tNormal" ] = { type: 't', value: flatNormalTex };
 		
 		uniforms[ "diffuse" ].value.setHex( diffuse );
