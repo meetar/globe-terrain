@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="utf-8">
+		<script type='text/javascript'">
+		var startTime, endTime;
+		startTime = new Date();
+		</script>
+    <script type='text/javascript' src="../js/jquery-1.10.2.min.js"></script>
+    <!--script type='text/javascript' src="../js/jquery-1.10.2.js"></script-->
+    <script type='text/javascript' src="../js/Detector.js"></script>
+    <script type="text/javascript" src="../js/three.js"></script>
+   	<script type='text/javascript' src="../js/TrackballControls2.js"></script>
+    <script type='text/javascript' src='../js/tween.js'></script>
+    <script type='text/javascript' src='../js/RTT_setup.js'></script>
+	<script type="text/javascript" src="../js/dat.gui.min.js"></script>
+	<script type="text/javascript" src="../js/ShaderLoader.min.js"></script>
+	<!--script type="text/javascript" src="../js/ShaderLoader.js"></script-->
+	  
+		<link rel="stylesheet" type="text/css" href="../css/globe.css">
+		
+	</head>
+	<body>
+  <div id="globecontainer"></div>
+	
+	
+		
+	<!-- IMAGE PROCESSING SHADERS -->
+	
+	<!-- Render-to-texture vertex shader -->
+	<script data-src="../shaders/vs_rt.js" data-name="vs_rt" type="x-shader/x-vertex"></script>
+	  
+	<!-- RTT erosion fragment shader -->
+	<script data-src="../shaders/fs_erode.js" data-name="fs_erode" type="x-shader/x-fragment"></script>
+	
+	
+	<!-- RTT dilation fragment shader -->
+	<script data-src="../shaders/fs_dilate.js" data-name="fs_dilate" type="x-shader/x-fragment"></script>
+
+	<!-- this shader outputs as its final fragment the brightest value in the input
+	texture - the result is used by the fs_rtt shader to normalize the input texture -->
+	<!-- maximum-finding fragment shader -->
+	<script data-src="../shaders/fs_maximum.js" data-name="fs_maximum" type="x-shader/x-fragment"></script>
+
+	<!-- final RTT output shader - takes as input the result of the
+	erode/dilate shaders and the normalization shader -->
+	<!-- image normalization fragment shader -->
+	<script data-src="../shaders/fs_rtt.js" data-name="fs_rtt" type="x-shader/x-fragment"></script>
+
+
+	<!-- MAIN SHADERS -->
+
+  <!-- ----- VERTEX SHADER ----- -->
+	<script data-src="../shaders/vs_main.js" data-name="vs_main" type="x-shader/x-vertex"></script>
+    
+  <!-- ----- FRAGMENT SHADER ----- -->    
+  
+	<script data-src="../shaders/fs_main.js" data-name="fs_main" type="x-shader/x-fragment"></script>
+
+    
+    
+  <!-- ----- MAIN THREE.JS CODE ----- -->   
+ <script type='text/javascript' src='../js/globe_demo01.js'></script>
+
+  
+	</body>
+</html>

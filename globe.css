@@ -1,0 +1,20 @@
+
+body, html{
+	 background-color:#dddddd;
+	 margin:0px;
+	 padding:0px;
+	 height: 100%;
+	}
+/* styles for the globe post */
+#globecontainer {
+	width: 95%;
+	height: 95%;
+	margin: 0px;
+	padding: 0px;
+	z-index: 1;
+}
+
+
+.dg.ac {
+z-index: 2;
+}
