@@ -7,6 +7,10 @@ http://meetar.github.io/globe-terrain/
 
 ![globe image](http://meetar.github.io/globe-terrain/globe.png)
 
+Associated post:
+
+http://edgeca.se/going-into-detail/
+
 More detailed demos of the underlying technique are here:
 
 https://github.com/meetar/heightmap-demos
