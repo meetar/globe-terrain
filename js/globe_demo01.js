@@ -327,7 +327,7 @@ render();
     diffuseControl = gui.add(myGui, 'diffuse', 0, 1.0);
     ambientControl = gui.add(myGui, 'ambient', 0, 1.0);
     pointControl = gui.add(myGui, 'pointLight', 0, 1.0);
-    shininessControl = gui.add(myGui, 'shininess', 0, 1000.0);
+    shininessControl = gui.add(myGui, 'shininess', 0, 250.0);
     specularControl = gui.add(myGui, 'specular', 0, 10.0);
 		
 		lightRotateControl = gui.add(myGui, 'lightRotate', 0, 1.0);
