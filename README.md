@@ -5,7 +5,7 @@ This demo distorts a flat plane onto the surface of a globe, depending on lat/lo
 
 http://meetar.github.io/globe-terrain/
 
-![globe image](ttps://github.com/meetar/globe-terrain/globe.png)
+![globe image](http://meetar.github.io/globe-terrain/globe.png)
 
 More detailed demos of the underlying technique are here:
 
