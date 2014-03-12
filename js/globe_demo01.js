@@ -258,7 +258,7 @@
 		controls.zoomSpeed = 0.0;
     controls.panSpeed = 0.8;
 
-    controls.noZoom = true;
+    controls.noZoom = false;
     controls.noPan = false;
 
     controls.staticMoving = false;
