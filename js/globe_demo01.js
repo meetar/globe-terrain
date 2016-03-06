@@ -324,11 +324,10 @@ function init() {
 		
 	dilateControl.onChange(function(value) {
 		value = 1.05 - value;
-		log(value);
 		if (value == 0.05) value = 10;
 		setTextureMatUniform("u_dilate", Math.log(value));
 		// setTextureMatUniform("u_dilate", value);
-		log(Math.log(value));
+		// log(Math.log(value));
 		tweakRTTs();
 		// render();
 	});
