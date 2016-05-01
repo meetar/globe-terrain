@@ -9,7 +9,7 @@ http://meetar.github.io/globe-terrain/
 
 Associated post:
 
-http://edgeca.se/going-into-detail/
+http://fjord.style/going-into-detail/
 
 More detailed demos of the underlying technique are here:
 
@@ -17,5 +17,5 @@ https://github.com/meetar/heightmap-demos
 
 As well as more detail about the theory;
 
-http://edgeca.se/the-lay-of-the-land/
+http://fjord.style/the-lay-of-the-land/
 
