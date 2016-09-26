@@ -1,8 +1,8 @@
 	startTime = new Date();  
 
 	// globals
-  var camera, scene, renderer, container;
-  var light, ambientLight, pointLight;
+	var camera, scene, renderer, container;
+	var light, ambientLight, pointLight;
 
 	var globeImage;
 
@@ -31,7 +31,7 @@
 
 	function rads(x) { return x*Math.PI/180; }
   
-  function numst(s) { return String((s).toFixed(2)); }
+	function numst(s) { return String((s).toFixed(2)); }
 	
 	function setMatUniform(name, value) {
 		for (mat in mats) {
@@ -122,60 +122,60 @@
     flatNormalTex = THREE.ImageUtils.loadTexture( './img/flat.png', new THREE.UVMapping(), function () { render(); });
     uniforms[ "tNormal" ] = { type: 't', value: flatNormalTex };
 		
-		uniforms[ "diffuse" ].value.setHex( diffuse );
-		uniforms[ "specular" ].value = new THREE.Color().setRGB(specular, specular, specular);
-		// uniforms[ "specular" ].value.setHex( specular );
-		uniforms[ "ambient" ].value.setHex( ambient );
+	uniforms[ "diffuse" ].value.setHex( diffuse );
+	uniforms[ "specular" ].value = new THREE.Color().setRGB(specular, specular, specular);
+	// uniforms[ "specular" ].value.setHex( specular );
+	uniforms[ "ambient" ].value.setHex( ambient );
     uniforms[ "shininess" ].value = shininess;
 
-		uniforms[ "enableDiffuse" ] = { type: 'i', value: 1 };
+	uniforms[ "enableDiffuse" ] = { type: 'i', value: 1 };
 
-		uniforms[ "tNormal" ] = { type: 't', value: flatNormalTex };
-		uniforms[ "tDiffuse" ] = { type: 't', value: new THREE.ImageUtils.loadTexture( './img/world.topo.1024.jpg', new THREE.UVMapping(), function () { render(); }) };
+	uniforms[ "tNormal" ] = { type: 't', value: flatNormalTex };
+	uniforms[ "tDiffuse" ] = { type: 't', value: new THREE.ImageUtils.loadTexture( './img/world.topo.1024.jpg', new THREE.UVMapping(), function () { render(); }) };
     uniforms[ "tDisplacement" ] = { type: 't', value: globeTexture.texture2 };
 
-		uniforms[ "tDiffuseOpacity" ] = { type: 'f', value: 1 };
-		uniforms[ "tDiffuse2Opacity" ] = { type: 'f', value: 0 };
+	uniforms[ "tDiffuseOpacity" ] = { type: 'f', value: 1 };
+	uniforms[ "tDiffuse2Opacity" ] = { type: 'f', value: 0 };
 
 
     uniforms[ "uPointLightPos"] =   { type: "v3", value: pointLight.position },
     uniforms[ "uPointLightColor" ] = {type: "c", value: new THREE.Color( pointLight.color )};
     uniforms[ "uAmbientLightColor" ] = {type: "c", value: new THREE.Color( ambientLight.color )};
 
-		uniforms[ "matrightBottom" ] = { type: 'v2', value: new THREE.Vector2( 180.0, -90.0 ) };
+	uniforms[ "matrightBottom" ] = { type: 'v2', value: new THREE.Vector2( 180.0, -90.0 ) };
     uniforms[ "matleftTop" ] = { type: 'v2', value: new THREE.Vector2( -180.0, 90.0 ) };
     uniforms[ "sphereRadius" ] = { type: 'f', value: 100.0 };
-		uniforms[ "mixAmount" ] = { type: 'f', value: 1.0 };
+	uniforms[ "mixAmount" ] = { type: 'f', value: 1.0 };
 
-		// necessary?
+	// necessary?
     uniforms[ "diffuse" ].value.convertGammaToLinear();
-		uniforms[ "specular" ].value.convertGammaToLinear();
-		uniforms[ "ambient" ].value.convertGammaToLinear();
+	uniforms[ "specular" ].value.convertGammaToLinear();
+	uniforms[ "ambient" ].value.convertGammaToLinear();
 
     uniforms[ "enableDisplacement" ] = { type: 'i', value: 1 };
     uniforms[ "uDisplacementScale" ] = { type: 'f', value: 100 };
     uniforms[ "uDisplacementPostScale" ] = {type: 'f', value: 25 };
 
-		uniforms[ "bumpScale" ] = { type: "f", value: 30.0 };
-		uniforms[ "opacity" ] = { type: "f", value: 1.0 };
+	uniforms[ "bumpScale" ] = { type: "f", value: 30.0 };
+	uniforms[ "opacity" ] = { type: "f", value: 1.0 };
     uniforms[ "uNormalOffset" ] = { type: "v2", value: new THREE.Vector2( 1.0, 1.0 ) };
 
     
     material = new THREE.ShaderMaterial( {
-            uniforms: uniforms,
-            vertexShader: vs_main,
-            fragmentShader: fs_main,
+        uniforms: uniforms,
+        vertexShader: vs_main,
+        fragmentShader: fs_main,
     } );
 		
 		
 		
-		globeTexture.textureMat2.uniforms.u_erode.value = .02;
-		globeTexture.textureMat2.uniforms.u_dilate.value = .02;
-		globeTexture.textureMat.uniforms.u_erode.value = .02;
-		globeTexture.textureMat.uniforms.u_dilate.value = .02;
+	globeTexture.textureMat2.uniforms.u_erode.value = .02;
+	globeTexture.textureMat2.uniforms.u_dilate.value = .02;
+	globeTexture.textureMat.uniforms.u_erode.value = .02;
+	globeTexture.textureMat.uniforms.u_dilate.value = .02;
 
 
-		textureMats = [globeTexture.textureMat, globeTexture.textureMat2];
+	textureMats = [globeTexture.textureMat, globeTexture.textureMat2];
 
 
     // GEOMETRY
@@ -185,7 +185,7 @@
     globeGeo = new THREE.PlaneGeometry(10, 10, 257, 129);
     globeGeo.computeTangents();
     globeMesh = new THREE.Mesh( globeGeo, material);
-		globeMesh.frustumCulled = false;
+	globeMesh.frustumCulled = false;
 
 
 	scene.add(globeMesh);
@@ -203,8 +203,8 @@
 
 	debugs = new THREE.Object3D();
 	scene.add(debugs);
-			// log('tex?')
-			// log(globeTexture.texture);
+	// log('tex?')
+	// log(globeTexture.texture);
 	var myDbgGeo = new THREE.PlaneGeometry( 50, 50, 1, 1 );
 	myDbgMat = new THREE.MeshBasicMaterial({ color: 0xffffff, map: globeTexture.texture });
 	var myDbg = new THREE.Mesh( myDbgGeo, myDbgMat );
@@ -244,7 +244,7 @@
 			unwrapGoal.x = unwrapGoal.x == 0.0 ? 1.0 : 0.0; 
 		})
     .onUpdate( function () {	
-			material.uniforms["mixAmount"].value = this.x;
+		material.uniforms["mixAmount"].value = this.x;
     })
 	;
 	
@@ -252,10 +252,10 @@
 		
 		
     
-		controls = new THREE.TrackballControls( camera, container );
+	controls = new THREE.TrackballControls( camera, container );
 
-		controls.rotateSpeed = 3.0;
-		controls.zoomSpeed = 0.0;
+	controls.rotateSpeed = 3.0;
+	controls.zoomSpeed = 0.0;
     controls.panSpeed = 0.8;
 
     controls.noZoom = false;
@@ -268,59 +268,59 @@
     
     controls.enabled = true;
 		
-		addMouseHandler(renderer.domElement);
-	
-		// calculate all textures
-		for (x in RTTs) prepTextures(RTTs[x]);
-		startLoop();
-		endTime = new Date();
-		console.log( (endTime - startTime) / 1000);
-render();
+	addMouseHandler(renderer.domElement);
+
+	// calculate all textures
+	for (x in RTTs) prepTextures(RTTs[x]);
+	startLoop();
+	endTime = new Date();
+	console.log( (endTime - startTime) / 1000);
+	render();
 		
 		
 		
 		
-		//  
-		// GUI
-		//
-  
-		var initGUI = function() {
-			// this.x = 0.0;
-			this.lightRotate = 0.0;
-			this.camera_z = 0.0;
-			this.camera_near = 1.0;
-			this.camera_far = 1.0;
+	//  
+	// GUI
+	//
 
-			this.bumpScale = 30.0;
-			this.normal_offset = 1.0;
-			this.diffuse = 1.0;
-			this.ambient = 0.0;
-			this.pointLight = .5;
-			this.shininess = 10.0;
-			this.specular = 1.0;
+	var initGUI = function() {
+		// this.x = 0.0;
+		this.lightRotate = 0.0;
+		this.camera_z = 0.0;
+		this.camera_near = 1.0;
+		this.camera_far = 1.0;
 
-			this.erode = 0.02;
-			this.dilate = 0.02;
-			this.steps = 50;
-			this.scale = 25;
+		this.bumpScale = 30.0;
+		this.normal_offset = 1.0;
+		this.diffuse = 1.0;
+		this.ambient = 0.0;
+		this.pointLight = .5;
+		this.shininess = 10.0;
+		this.specular = 1.0;
+
+		this.erode = 0.02;
+		this.dilate = 0.02;
+		this.steps = 50;
+		this.scale = 25;
 
 
-			// this.normalize = true;
-			// this.debug = false;
-			// this.unwrap = false;
-								
-		}								
+		// this.normalize = true;
+		// this.debug = false;
+		// this.unwrap = false;
+							
+	}								
   
     myGui = new initGUI();
-	  gui = new dat.GUI();
+	gui = new dat.GUI();
 
-		// controls setup
-  
-		normalScaleControl = gui.add(myGui, 'bumpScale', 0, 100);
-		// normalOffsetControl = gui.add(myGui, 'normal_offset', 0, 2);
+	// controls setup
+
+	normalScaleControl = gui.add(myGui, 'bumpScale', 0, 100);
+	// normalOffsetControl = gui.add(myGui, 'normal_offset', 0, 2);
     
-		erodeControl = gui.add(myGui, 'erode', 0.0, 0.05);
-		dilateControl = gui.add(myGui, 'dilate', 0.0, 0.05);
+	erodeControl = gui.add(myGui, 'erode', 0.0, 0.05);
+	dilateControl = gui.add(myGui, 'dilate', 0.0, 0.05);
     stepsControl = gui.add(myGui, 'steps', 0, 100.0);
     scaleControl = gui.add(myGui, 'scale', 0, 100.0);
 		
@@ -330,105 +330,105 @@ render();
     shininessControl = gui.add(myGui, 'shininess', 0, 250.0);
     specularControl = gui.add(myGui, 'specular', 0, 10.0);
 		
-		lightRotateControl = gui.add(myGui, 'lightRotate', 0, 1.0);
-		
+	lightRotateControl = gui.add(myGui, 'lightRotate', 0, 1.0);
+	
 
-		// normalizeControl = gui.add(myGui, 'normalize');
-		// debugControl = gui.add(myGui, 'debug');
-		// unwrapControl = gui.add(myGui, 'unwrap');
+	// normalizeControl = gui.add(myGui, 'normalize');
+	// debugControl = gui.add(myGui, 'debug');
+	// unwrapControl = gui.add(myGui, 'unwrap');
 
-		// control functions
+	// control functions
 		
     normalScaleControl.onChange(function(value) {
-			setMatUniform("bumpScale", value);
-			render();
+		setMatUniform("bumpScale", value);
+		render();
     });
 				
     // normalOffsetControl.onChange(function(value) {
-			// vecValue = new THREE.Vector2(value, value);
-			// setMatUniform("uNormalOffset", vecValue);
-			// render();
+		// vecValue = new THREE.Vector2(value, value);
+		// setMatUniform("uNormalOffset", vecValue);
+		// render();
     // });
 		
     diffuseControl.onChange(function(value) {
-			setMatUniform("tDiffuseOpacity", value);
-			render();
+		setMatUniform("tDiffuseOpacity", value);
+		render();
     });
 
     erodeControl.onChange(function(value) {
-			if (value == 0.05) value = 10;
-			// setTextureMatUniform("u_erode", Math.log(value));
-			setTextureMatUniform("u_erode", value);
-			// log(Math.log(value));
-			// only perform the calculations for the currentView
-			tweakRTTs();
-			// render();
+		if (value == 0.05) value = 10;
+		// setTextureMatUniform("u_erode", Math.log(value));
+		setTextureMatUniform("u_erode", value);
+		// log(Math.log(value));
+		// only perform the calculations for the currentView
+		tweakRTTs();
+		// render();
     });
 		
-		dilateControl.onChange(function(value) {
-					if (value == 0.05) value = 10;
+	dilateControl.onChange(function(value) {
+		if (value == 0.05) value = 10;
 
-			// setTextureMatUniform("u_dilate", Math.log(value));
-			setTextureMatUniform("u_dilate", value);
-			// log(Math.log(value));
-			tweakRTTs();
-			// render();
-		});
+		// setTextureMatUniform("u_dilate", Math.log(value));
+		setTextureMatUniform("u_dilate", value);
+		// log(Math.log(value));
+		tweakRTTs();
+		// render();
+	});
 
     stepsControl.onChange(function(value) {
-			loopSteps = value;
-			tweakRTTs();
-			// render();
+		loopSteps = value;
+		tweakRTTs();
+		// render();
     });
 		
     scaleControl.onChange(function(value) {
-			setMatUniform("uDisplacementPostScale", value);
-			render();
+		setMatUniform("uDisplacementPostScale", value);
+		render();
     });
 		
     ambientControl.onChange(function(value) {
-			setMatUniform("uAmbientLightColor", new THREE.Color().setRGB(value, value, value));
-			render();
+		setMatUniform("uAmbientLightColor", new THREE.Color().setRGB(value, value, value));
+		render();
     });
 		
 	  pointControl.onChange(function(value) {
-			// pointLight.color.setRGB(value,value,value);
-			setMatUniform("uPointLightColor", new THREE.Color().setRGB(value, value, value));
-			render();
+		// pointLight.color.setRGB(value,value,value);
+		setMatUniform("uPointLightColor", new THREE.Color().setRGB(value, value, value));
+		render();
     });
 		
-		 shininessControl.onChange(function(value) {
-			setMatUniform("shininess", value);
-			render();
+	shininessControl.onChange(function(value) {
+		setMatUniform("shininess", value);
+		render();
     });	
 		
-		 specularControl.onChange(function(value) {
-			setMatUniform("specular", new THREE.Color().setRGB(value, value, value));
-			render();
+	specularControl.onChange(function(value) {
+		setMatUniform("specular", new THREE.Color().setRGB(value, value, value));
+		render();
     });
 		
-		// normalizeControl.onChange(function(value) {
-			// normalize = this.value;
-		// });
+	// normalizeControl.onChange(function(value) {
+		// normalize = this.value;
+	// });
 		
-		lightRotateControl.onChange(function(value) {
-			lightRotate.rotation.y = rads(value * 360);
-			vector = new THREE.Vector3();
-			vector.setFromMatrixPosition( light.matrixWorld );
-			material.uniforms["uPointLightPos"].value = vector;
-			render();
-		});
-		
-		// debugControl.onChange(function(value) {
-			// debugs.traverse( function ( object ) { object.visible = value; } );
-			// render();
-		// });
-		
-		// unwrapControl.onChange(function(value) {
-			// unwrapTween.start();
-		// });
-
+	lightRotateControl.onChange(function(value) {
+		lightRotate.rotation.y = rads(value * 360);
+		vector = new THREE.Vector3();
+		vector.setFromMatrixPosition( light.matrixWorld );
+		material.uniforms["uPointLightPos"].value = vector;
 		render();
+	});
+		
+	// debugControl.onChange(function(value) {
+		// debugs.traverse( function ( object ) { object.visible = value; } );
+		// render();
+	// });
+	
+	// unwrapControl.onChange(function(value) {
+		// unwrapTween.start();
+	// });
+
+	render();
 
 }
  
@@ -571,10 +571,10 @@ render();
 	
 	var mouseDown = false;
 	
-		function onMouseDown(evt) {
-	// log('1');
-			// evt.preventDefault();
-			mouseDown = true;
+	function onMouseDown(evt) {
+		// log('1');
+		// evt.preventDefault();
+		mouseDown = true;
 		// if (evt.clientX != 0) {
 			// mouseX = evt.clientX;
 			// mouseY = evt.clientY;
@@ -582,13 +582,12 @@ render();
 	}
 
 	function onMouseUp(evt) {
-			// evt.preventDefault();
-	// log('2');
-
-			mouseDown = false;
+		// evt.preventDefault();
+		// log('2');
+		mouseDown = false;
 	}
 	
-		function addMouseHandler(div) {
+	function addMouseHandler(div) {
 		div.addEventListener('mousedown', function (e) {
 				onMouseDown(e);
 		}, false);
@@ -605,26 +604,26 @@ render();
 			render();
 			controls.update(); // trackball interaction
 		}
-			requestId = requestAnimationFrame( loop );
+		requestId = requestAnimationFrame( loop );
 	}
 
 	function startLoop() {
-			if (!requestId) {
-				 loop();
-			}
+		if (!requestId) {
+			 loop();
+		}
 	}
 
 	function stopLoop() {
-			if (requestId) {
-				 cancelAnimationFrame(requestId);
-				 requestId = undefined;
-			}
+		if (requestId) {
+			 cancelAnimationFrame(requestId);
+			 requestId = undefined;
+		}
 	}
   
-  function render() {
+	function render() {
         renderer.clear();
         renderer.render(scene, camera);
-  }
+	}
 
 	
 	
@@ -670,7 +669,7 @@ render();
 	// onload
 	//
   
-  window.onload = function() {
+	window.onload = function() {
 	
 		// switch images based on window width
 		large = $(window).width() < 1200 ? false : true;
@@ -731,20 +730,20 @@ render();
 	}
 		
 	function adjustNormScene(width, height) {
-			// recreate buffer
-			normTexture = new THREE.WebGLRenderTarget( width, height, renderTargetParams );	
-			// update debug plane's material
-			myDbgMat3.map = normTexture;
-			// resize texture to match image size
-			normTextureMat.uniforms.u_textureSize.value = new THREE.Vector2( width, height );
-			normTextureMat.needsUpdate = true;
-			// recreate rtt scene
-			normScene.remove( normTextureMesh );
-			normTextureGeo = new THREE.PlaneGeometry( width, height );
-			normTextureMesh = new THREE.Mesh( normTextureGeo, normTextureMat );
-			normTextureMesh.position.z = -100;
-			normScene.add( normTextureMesh );
-			normCamera = new THREE.OrthographicCamera( width / - 2, width / 2, height / 2, height / - 2, 1, 10000 );
+		// recreate buffer
+		normTexture = new THREE.WebGLRenderTarget( width, height, renderTargetParams );	
+		// update debug plane's material
+		myDbgMat3.map = normTexture;
+		// resize texture to match image size
+		normTextureMat.uniforms.u_textureSize.value = new THREE.Vector2( width, height );
+		normTextureMat.needsUpdate = true;
+		// recreate rtt scene
+		normScene.remove( normTextureMesh );
+		normTextureGeo = new THREE.PlaneGeometry( width, height );
+		normTextureMesh = new THREE.Mesh( normTextureGeo, normTextureMat );
+		normTextureMesh.position.z = -100;
+		normScene.add( normTextureMesh );
+		normCamera = new THREE.OrthographicCamera( width / - 2, width / 2, height / 2, height / - 2, 1, 10000 );
 	}
 		
 
